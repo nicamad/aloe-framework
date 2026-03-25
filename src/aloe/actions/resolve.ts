@@ -1,12 +1,12 @@
 /* Objective: resolve action state dynamically from the execution envelope and latest artifacts. */
 
-import { ALOE_ACTION_REGISTRY } from "@/lib/aloe/actions/registry";
+import { ALOE_ACTION_REGISTRY } from "./registry.js";
 import type {
   AloeArtifactKind,
   AloeExecutionMode,
   AloeResolvedAction,
   AloeResolvedActionState,
-} from "@/lib/aloe/actions/types";
+} from "./types.js";
 
 export function resolveAloeActions(args: {
   executionMode: AloeExecutionMode;

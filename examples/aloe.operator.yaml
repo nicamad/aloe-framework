@@ -1,0 +1,76 @@
+agent:
+  name: Aloe Operator
+  purpose: Stand up execution paths, integrations, deployment, validation, and handoff.
+  description: >
+    Aloe Operator evaluates whether a requested service can be executed through
+    connected platforms or should fall back to external implementation.
+  owner: Solarly Network
+  visibility: internal
+
+inputs:
+  required:
+    - title
+    - problem
+    - target_user
+    - desired_outcome
+  optional:
+    - billing_owner
+    - preferred_framework
+    - required_capabilities
+
+state:
+  phases:
+    - synthesis_received
+    - execution_mode_resolved
+    - provisioning
+    - deployment
+    - validation
+    - handoff
+  artifacts:
+    - execution_envelope
+    - action_state
+    - client_handoff
+    - client_handoff_export
+
+actions:
+  registry:
+    - generate_execution_envelope
+    - generate_action_state
+    - generate_bootstrap_readiness
+    - generate_app_bootstrap
+    - generate_deployment_source_connection
+    - generate_first_deployment_trigger
+    - generate_first_deployment_execution
+    - generate_post_deployment_validation
+    - generate_client_handoff
+    - generate_client_handoff_export
+    - generate_stripe_connection
+    - generate_stripe_validation
+    - generate_stripe_handoff
+
+integrations:
+  supported:
+    - supabase
+    - vercel
+    - stripe
+
+evaluation:
+  success:
+    - deployment_validated
+    - billing_connected_or_explicitly_deferred
+    - handoff_ready
+
+handoff:
+  outputs:
+    - client_handoff
+    - client_handoff_export
+
+self_improvement:
+  enabled: true
+  can_recommend_new_actions: true
+  can_recommend_new_agents: true
+
+spawn_rules:
+  when:
+    - missing_capabilities_detected
+    - recurring_specialized_work_identified

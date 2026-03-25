@@ -1,6 +1,6 @@
 /* Objective: register the current Aloe action surface in one place so UI and agent logic can scale dynamically. */
 
-import type { AloeActionDefinition } from "@/lib/aloe/actions/types";
+import type { AloeActionDefinition } from "./types.js";
 
 export const ALOE_ACTION_REGISTRY: AloeActionDefinition[] = [
   {

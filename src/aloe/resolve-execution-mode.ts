@@ -1,7 +1,7 @@
 import type {
   AloeExecutionMode,
   ConnectorAvailability,
-} from "@/lib/aloe/execution-envelope";
+} from "./execution-envelope.js";
 
 export function resolveExecutionMode(args: {
   connectors: ConnectorAvailability;

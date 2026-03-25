@@ -1,0 +1,37 @@
+{
+  "version": "1.0",
+  "projectId": "demo-project-001",
+  "sessionId": "demo-session-001",
+  "objective": {
+    "title": "Stand up a validated client-facing web app",
+    "problem": "The client needs a modern web application stood up quickly with deployment, validation, billing, and handoff.",
+    "targetUser": "Small business operator launching a new service",
+    "desiredOutcome": "A live validated deployment with billing connected and client handoff ready."
+  },
+  "synthesis": {
+    "summary": "Starling synthesized the client's requested service into a managed build path suitable for connected execution.",
+    "requirements": ["supabase", "vercel", "stripe"],
+    "assumptions": [
+      "The client approves a Next.js and Supabase implementation.",
+      "The client either has Stripe already or wants it connected during setup."
+    ],
+    "risks": [],
+    "recommendedFramework": "Next.js + Supabase"
+  },
+  "execution": {
+    "availableConnectors": {
+      "supabase": true,
+      "vercel": true,
+      "stripe": true
+    },
+    "missingCapabilities": [],
+    "mode": "connected_execution",
+    "rationale": "All required capabilities are available through connected platforms."
+  },
+  "outputs": {
+    "shouldProvision": true,
+    "shouldDeploy": true,
+    "shouldGenerateAloeYaml": true,
+    "shouldProduceHandoff": true
+  }
+}
